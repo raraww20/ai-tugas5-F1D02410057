@@ -1,0 +1,151 @@
+{
+  "judul": "Sistem Pakar Keselamatan Snorkeling dan Diving di Gili",
+  "batas": "Sistem ini merupakan alat bantu edukasi dan pemeriksaan awal berdasarkan jawaban pengguna, bukan penilaian kondisi laut secara langsung atau pengganti instruksi pemandu, instruktur selam, operator, maupun petugas setempat. Kondisi arus, gelombang, cuaca, visibilitas, dan aturan lokasi dapat berubah sewaktu-waktu. Keputusan akhir untuk masuk ke air harus mengikuti briefing dan arahan pemandu/operator setempat. Aturan diving hanya memberi peringatan umum; penyelam harus mematuhi sertifikasi, pelatihan, rencana penyelaman, dan prosedur keselamatan yang berlaku.",
+  "sumber": {
+    "S1": "PADI, Diver Safety: https://www.padi.com/safety (panduan keselamatan dan praktik menyelam; akses perlu diperiksa kembali saat penyusunan laporan).",
+    "S2": "NOAA Ocean Service, Beach Safety: https://oceanservice.noaa.gov/hazards/beach-safety/ (informasi bahaya laut dan keselamatan di kawasan pantai).",
+    "S3": "Divers Alert Network (DAN), Safety Resources: https://dan.org/safety-prevention/ (materi keselamatan penyelaman dan pencegahan risiko)."
+  },
+  "pertanyaan": {
+    "aktivitas snorkeling": "Apakah aktivitas yang akan dilakukan adalah snorkeling?",
+    "aktivitas diving": "Apakah aktivitas yang akan dilakukan adalah scuba diving?",
+    "cuaca buruk": "Apakah cuaca sedang buruk, misalnya hujan lebat, petir, atau angin kencang?",
+    "arus kuat": "Apakah terlihat atau diinformasikan bahwa arus laut sedang kuat?",
+    "ombak tinggi": "Apakah ombak/gelombang di lokasi terlihat tinggi atau kondisi permukaan tidak tenang?",
+    "snorkeling tanpa pelampung": "Jika snorkeling, apakah Anda tidak menggunakan pelampung/perangkat apung yang sesuai kemampuan?",
+    "snorkeling tanpa pendamping": "Jika snorkeling, apakah Anda akan masuk ke air sendirian tanpa buddy atau pemandu?",
+    "diving tanpa sertifikasi": "Jika scuba diving, apakah Anda belum memiliki sertifikasi/pelatihan yang sesuai dan tidak didampingi instruktur untuk program pemula?",
+    "diving melebihi batas sertifikasi": "Jika scuba diving, apakah rencana kedalaman atau kondisi penyelaman melebihi batas sertifikasi/pengalaman Anda?",
+    "peralatan diving belum diperiksa": "Jika scuba diving, apakah peralatan belum diperiksa dan belum melalui briefing pemeriksaan sebelum masuk air?"
+  },
+  "aturan": [
+    {
+      "id": "R1",
+      "jika": [
+        "cuaca buruk",
+        "arus kuat",
+        "ombak tinggi"
+      ],
+      "mode": "atau",
+      "maka": "kondisi laut berpotensi tidak aman",
+      "sumber": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "R2",
+      "jika": [
+        "kondisi laut berpotensi tidak aman"
+      ],
+      "mode": "dan",
+      "maka": "TUNDA AKTIVITAS DAN JANGAN MASUK KE AIR SAMPAI DINYATAKAN AMAN OLEH OPERATOR/PANDUAN SETEMPAT",
+      "sumber": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "R3",
+      "jika": [
+        "aktivitas snorkeling",
+        "snorkeling tanpa pelampung"
+      ],
+      "mode": "dan",
+      "maka": "perlengkapan keselamatan snorkeling belum memadai",
+      "sumber": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "R4",
+      "jika": [
+        "aktivitas snorkeling",
+        "snorkeling tanpa pendamping"
+      ],
+      "mode": "dan",
+      "maka": "pendampingan snorkeling belum memadai",
+      "sumber": [
+        "S3"
+      ]
+    },
+    {
+      "id": "R5",
+      "jika": [
+        "perlengkapan keselamatan snorkeling belum memadai",
+        "pendampingan snorkeling belum memadai"
+      ],
+      "mode": "atau",
+      "maka": "SNORKELING BELUM MEMENUHI LANGKAH KESELAMATAN DASAR: GUNAKAN PERANGKAT APUNG YANG SESUAI DAN SNORKEL BERSAMA BUDDY/PANDUAN",
+      "sumber": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "R6",
+      "jika": [
+        "aktivitas diving",
+        "diving tanpa sertifikasi"
+      ],
+      "mode": "dan",
+      "maka": "kompetensi diving belum terverifikasi",
+      "sumber": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "R7",
+      "jika": [
+        "aktivitas diving",
+        "diving melebihi batas sertifikasi"
+      ],
+      "mode": "dan",
+      "maka": "rencana diving melebihi batas kemampuan",
+      "sumber": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "R8",
+      "jika": [
+        "aktivitas diving",
+        "peralatan diving belum diperiksa"
+      ],
+      "mode": "dan",
+      "maka": "pemeriksaan peralatan diving belum dilakukan",
+      "sumber": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "R9",
+      "jika": [
+        "kompetensi diving belum terverifikasi",
+        "rencana diving melebihi batas kemampuan"
+      ],
+      "mode": "atau",
+      "maka": "JANGAN MELAKUKAN PENYELAMAN TERSEBUT: IKUTI BATAS SERTIFIKASI DAN LAKUKAN PENYELAMAN DENGAN INSTRUKTUR/OPERATOR YANG KOMPETEN",
+      "sumber": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "R10",
+      "jika": [
+        "pemeriksaan peralatan diving belum dilakukan"
+      ],
+      "mode": "dan",
+      "maka": "JANGAN MULAI DIVING SEBELUM PERALATAN DIPERIKSA DAN BRIEFING KESELAMATAN SELESAI",
+      "sumber": [
+        "S1",
+        "S3"
+      ]
+    }
+  ]
+}

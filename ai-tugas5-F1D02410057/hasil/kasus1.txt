@@ -1,0 +1,30 @@
+Sistem Pakar Keselamatan Snorkeling dan Diving di Gili
+Jawab pertanyaan dengan y (ya) atau t (tidak).\n
+1. Apakah cuaca sedang buruk, misalnya hujan lebat, petir, atau angin kencang? (y/t) > 
+2. Apakah terlihat atau diinformasikan bahwa arus laut sedang kuat? (y/t) > 
+3. Apakah ombak/gelombang di lokasi terlihat tinggi atau kondisi permukaan tidak tenang? (y/t) > 4. Apakah aktivitas yang akan dilakukan adalah snorkeling? (y/t) > 5. Jika snorkeling, apakah Anda tidak menggunakan pelampung/perangkat apung yang sesuai kemampuan? (y/t) > 6. Jika snorkeling, apakah Anda akan masuk ke air sendirian tanpa buddy atau pemandu? (y/t) > 7. Apakah aktivitas yang akan dilakukan adalah scuba diving? (y/t) > 8. Jika scuba diving, apakah Anda belum memiliki sertifikasi/pelatihan yang sesuai dan tidak didampingi instruktur untuk program pemula? (y/t) > 9. Jika scuba diving, apakah rencana kedalaman atau kondisi penyelaman melebihi batas sertifikasi/pengalaman Anda? (y/t) > 10. Jika scuba diving, apakah peralatan belum diperiksa dan belum melalui briefing pemeriksaan sebelum masuk air? (y/t) > 
+Fakta awal:
+cuaca buruk, arus kuat
+Proses Forward Chaining:
+Siklus 1: R1 -> kondisi laut berpotensi tidak aman
+Siklus 2: R2 -> TUNDA AKTIVITAS DAN JANGAN MASUK KE AIR SAMPAI DINYATAKAN AMAN OLEH OPERATOR/PANDUAN SETEMPAT
+Siklus 3: tidak ada aturan baru, berhenti
+
+Kesimpulan:
+- TUNDA AKTIVITAS DAN JANGAN MASUK KE AIR SAMPAI DINYATAKAN AMAN OLEH OPERATOR/PANDUAN SETEMPAT
+
+Alasan:
+  TUNDA AKTIVITAS DAN JANGAN MASUK KE AIR SAMPAI DINYATAKAN AMAN OLEH OPERATOR/PANDUAN SETEMPAT <- R2 (kondisi laut berpotensi tidak aman) [S2, S3]
+    kondisi laut berpotensi tidak aman <- R1 (cuaca buruk, arus kuat) [S2, S3]
+
+Catatan:
+Sistem ini merupakan alat bantu edukasi dan pemeriksaan awal berdasarkan jawaban
+pengguna, bukan penilaian kondisi laut secara langsung atau pengganti instruksi
+pemandu, instruktur selam, operator, maupun petugas setempat. Kondisi arus,
+gelombang, cuaca, visibilitas, dan aturan lokasi dapat berubah sewaktu-waktu.
+Keputusan akhir untuk masuk ke air harus mengikuti briefing dan arahan
+pemandu/operator setempat. Aturan diving hanya memberi peringatan umum; penyelam
+harus mematuhi sertifikasi, pelatihan, rencana penyelaman, dan prosedur keselamatan
+yang berlaku.
+
+Periksa kondisi lain? (y/t) > 
